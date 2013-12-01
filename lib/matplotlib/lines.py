@@ -72,7 +72,7 @@ def segment_hits(cx, cy, x, y, radius):
     #print points,lines
     return np.concatenate((points, lines))
 
-from IPython.utils.traitlets import Float
+from IPConfigurable.traitlets import Float
 
 class Line2D(Artist):
     """

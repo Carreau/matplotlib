@@ -66,8 +66,8 @@ def allow_rasterization(draw):
     draw_wrapper._supports_rasterization = True
     return draw_wrapper
 
-from IPython.config import Configurable
-from IPython.config import Config
+from IPConfigurable.configurable import Configurable
+from IPConfigurable.loader import Config
 import inspect 
 
 class Artist(Configurable):
