@@ -134,6 +134,15 @@ def register_cmap(name=None, cmap=None, data=None, lut=None):
     cmap = colors.LinearSegmentedColormap(name, data, lut)
     cmap_d[name] = cmap
 
+def list_cmap(reversed=False):
+    """
+    return a list of know colormap names
+
+    Parameter:
+        reverse (bool, default False): whether to return reverse color map name (ending with `_r`)
+    """
+    return list(sorted(m for m in cmap_d.keys() if (not m.endswith("_r") or reversed)))
+
 
 def get_cmap(name=None, lut=None):
     """
