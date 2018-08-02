@@ -2693,7 +2693,7 @@ class Axes(_AxesBase):
             autopct=None, pctdistance=0.6, shadow=False, labeldistance=1.1,
             startangle=None, radius=None, counterclock=True,
             wedgeprops=None, textprops=None, center=(0, 0),
-            frame=False, rotatelabels=False):
+            frame=False, rotatelabels=False, showlabels=True):
         """
         Plot a pie chart.
 
@@ -2737,8 +2737,6 @@ class Axes(_AxesBase):
 
         labeldistance : float or None, optional, default: 1.1
             The radial distance at which the pie labels are drawn.
-            If set to ``None``, label are not drawn, but are stored for use in
-            ``legend()``
 
         startangle : float, optional, default: None
             If not *None*, rotates the start of the pie chart by *angle*
@@ -2769,6 +2767,10 @@ class Axes(_AxesBase):
 
         rotatelabels : bool, optional, default: False
             Rotate each label to the angle of the corresponding slice if true.
+
+        showlabels : bool, optional, default: True
+            If set to ``False``, labels are not drawn, but are stored for use in
+            ``legend()``.
 
         Returns
         -------
@@ -2860,7 +2862,7 @@ class Axes(_AxesBase):
                 shad.set_label('_nolegend_')
                 self.add_patch(shad)
 
-            if labeldistance is not None:
+            if showlabels:
                 xt = x + labeldistance * radius * math.cos(thetam)
                 yt = y + labeldistance * radius * math.sin(thetam)
                 label_alignment_h = xt > 0 and 'left' or 'right'
